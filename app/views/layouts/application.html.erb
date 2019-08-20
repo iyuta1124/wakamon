@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Wakamon</title>
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+  </head>
+
+  <body>
+    <% flash.each do |key, value| %>
+      <div class="alert alert-<%= key %>" role="alert"><%= value %></div>
+    <% end %>
+    
+    <nav class="navbar navbar-default navbar-fixed-top navbar-transparent">
+      <div class="container">
+      
+        <%= link_to root_path do %>
+        <span class="navbar-brand">wakamon</span>
+        <% end %>
+        
+      
+        <ul class="nav navbar-nav navbar-right">
+          <% if logged_in?%>
+            <li>
+              <%= link_to topics_path do %>
+                <span>一覧</span>
+              <% end %>
+            </li>
+            <li>
+              <%= link_to '#' do %>
+                <span>ユーザー名</span>
+              <% end %>
+            </li>
+            <li>
+              <%= link_to logout_path, method: :delete do %>
+                <span>ログアウト</span>
+              <% end %>
+            </li>
+            <li>
+              <%= link_to favorites_index_path do %>
+                <span>お気に入り</span>
+              <% end %>
+            </li>
+            <li>
+              <%= link_to new_topic_path do %>
+                <span>新規投稿</span>
+              <% end %>
+            </li>
+          <% else %>
+            <li>
+              <%= link_to new_user_path do %>
+                <span>新規登録</span>
+              <% end %>
+            </li>
+            <li>
+              <%= link_to login_path do %>
+                <span>ログイン</span>
+              <% end %>
+            </li>
+          <% end %>
+        </ul>
+      </div>
+    </nav>
+
+    
+    <%= yield %>
+    
+    <script>
+      $(function(){
+        $(".alert").fadeOut(3000);
+      });
+    </script>
+
+  </body>
+</html>
