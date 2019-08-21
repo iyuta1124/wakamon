@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_08_19_092748) do
+ActiveRecord::Schema.define(version: 2019_08_21_062201) do
 
   create_table "favorites", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.integer "user_id"
@@ -25,6 +25,15 @@ ActiveRecord::Schema.define(version: 2019_08_19_092748) do
     t.string "image"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "class_name"
+    t.string "class_teacher"
+    t.string "year"
+    t.string "semester"
+    t.string "week"
+    t.string "term"
+    t.string "satisfaction"
+    t.string "difficulty_level"
+    t.string "assessment"
   end
 
   create_table "users", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|

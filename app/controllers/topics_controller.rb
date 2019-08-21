@@ -19,6 +19,6 @@ class TopicsController < ApplicationController
 
   private
   def topic_params
-    params.require(:topic).permit(:image, :description)
+    params.require(:topic).permit(:image, :description, :year, :class_name, :class_teacher, :semester, :week, :term, :satisfaction, :difficulty_level, :assessment)
   end
 end

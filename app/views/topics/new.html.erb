@@ -9,6 +9,43 @@
             <%= f.file_field :image%>
           </div>
           <div class="form-group">
+            <%= f.label :class_name %>
+            <%= f.text_field :class_name, class: 'form-control' %>
+          </div>
+          <div class="form-group">
+            <%= f.label :class_teacher %>
+            <%= f.text_field :class_teacher, class: 'form-control' %>
+          </div>
+          <div class="form-group">
+            <%= f.label :year %>
+            <%= f.select :year, [["2019年度", "2019年度"], ["2018年度", "2018年度"], ["2017年度", "2017年度"], ["2016年度", "2016年度"], ["その他", "その他"]] ,class:"form-control" %>
+          </div>
+          <div class="form-group">
+            <%= f.label :semester %>
+            <%= f.select :semester, [["前期", "前期"], ["後期", "後期"]] ,class:"form-control" %>
+          </div>
+           
+          <div class="form-group">
+            <%= f.label :week %>
+            <%= f.select :week, [["月", "月"], ["火", "火"], ["水", "水"], ["木", "木"], ["金", "金"], ["その他", "その他"]] ,class:"form-control" %>
+          </div>
+          <div class="form-group">
+            <%= f.label :term %>
+            <%= f.select :term, [["1限", "1限"], ["2限", "2限"], ["3限", "3限"], ["4限", "4限"], ["5限", "5限"], ["その他", "その他"]] ,class:"form-control" %>
+          </div>
+          <div class="form-group">
+            <%= f.label :satisfaction %>
+            <%= f.select :satisfaction, [["充実してない", "1"], ["あまり充実してない", "2"], ["普通", "3"], ["充実している", "4"], ["とても充実している", "5"]] ,class:"form-control" %>
+          </div>
+          <div class="form-group">
+            <%= f.label :difficulty_level %>
+            <%= f.select :difficulty_level, [["すごくとりにくい", "1"], ["とりにくい", "2"], ["普通", "3"], ["とりやすい", "4"], ["すごくとりやすい", "5"]] ,class:"form-control" %>
+          </div>
+          <div class="form-group">
+            <%= f.label :assessment %>
+            <%= f.select :assessment, [["テスト", "テスト"], ["レポート", "レポート"], ["出席", "出席"], ["その他", "その他"]] ,class:"form-control" %>
+          </div>
+          <div class="form-group">
             <%= f.label :description %>
             <%= f.text_area :description, class: 'form-control' %>
           </div>
