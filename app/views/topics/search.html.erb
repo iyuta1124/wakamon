@@ -1,5 +1,9 @@
 <div class="topic-index-wrapper">
   <div class="container">
+    <%= form_tag(search_path,:method => 'get') do %>
+  <%= text_field_tag :search %>
+  <%= submit_tag 'search', :class_name => nil %>
+<% end %>
     <div class="row">
       <% @topics.each do |topic| %>
         <div class="col-md-4">
@@ -10,12 +14,8 @@
            
             <% if !topic.favorite_users.include?(current_user) %>
               <%= link_to favorites_path(topic_id: topic.id), method: :post do %>
-                <span　class="topic-index-icon">お気に入り</span>
-                <% end %>
-            <% else %>
-　            <%= link_to favorites_path(topic_id: topic.id), method: :delete do %>
-　              <span　class="topic-index-icon">お気に入り解除</span>
-　          　<% end %>
+                <span　class="topic-index-icon">いいね</span>
+              <% end %>
             <% end %>
             
             <p class="topic-text">
@@ -59,3 +59,4 @@
     </div>
   </div>
 </div>
+

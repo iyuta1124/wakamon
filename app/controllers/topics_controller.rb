@@ -16,9 +16,21 @@ class TopicsController < ApplicationController
       render :new
     end
   end
-
+  
+  def search
+    @topics = Topic.search(params[:search])
+  end
+  
+  def destroy
+    @topic = Topic.find_by(id: params[:id])
+    @topic.destroy
+    flash[:success] = "投稿を削除しました"
+    redirect_to(topics_path)
+  end
+  
   private
   def topic_params
-    params.require(:topic).permit(:image, :description, :year, :class_name, :class_teacher, :semester, :week, :term, :satisfaction, :difficulty_level, :assessment)
+    params.require(:topic).permit(:description, :year, :class_name, :class_teacher, :semester, :week, :term, :satisfaction, :difficulty_level, :assessment)
   end
+  
 end

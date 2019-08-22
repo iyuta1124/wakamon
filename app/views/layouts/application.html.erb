@@ -31,7 +31,7 @@
             </li>
             <li>
               <%= link_to '#' do %>
-                <span>ユーザー名</span>
+                <span><%=current_user.name%></span>
               <% end %>
             </li>
             <li>
@@ -47,6 +47,11 @@
             <li>
               <%= link_to new_topic_path do %>
                 <span>新規投稿</span>
+              <% end %>
+            </li>
+            <li>
+              <%= link_to search_path do %>
+                <span>検索</span>
               <% end %>
             </li>
           <% else %>

@@ -4,14 +4,55 @@
       <div class="row">
         <div class="col-md-6 col-md-offset-3">
           <div class="topic-index-single">
-            <h2 class="topic-author">
+　　　　　　<h2 class="topic-author">
               <%= topic.user.name %>
             </h2>
-            <%= image_tag topic.image.url %>
+
+            <% if !topic.favorite_users.include?(current_user) %>
+              <%= link_to favorites_path(topic_id: topic.id), method: :post do %>
+                <span　class="topic-index-icon">お気に入り</span>
+                <% end %>
+            <% else %>
+　            <%= link_to favorites_path(topic_id: topic.id), method: :delete do %>
+　              <span　class="topic-index-icon">お気に入り解除</span>
+　          　<% end %>
+            <% end %>
+            
             <p class="topic-text">
-              <%= topic.description %>
+              教科名:<%= topic.class_name %>
             </p>
-             
+            <p class="topic-text">
+              講師:<%= topic.class_teacher %>
+            </p>
+            <p class="topic-text">
+               年度:<%= topic.year %>
+            </p>
+            <p class="topic-text">
+              学期:<%= topic.semester %>
+            </p>
+            <p class="topic-text">
+              曜日:<%= topic.week %>
+            </p>
+            <p class="topic-text">
+              時限:<%= topic.term %>
+            </p>
+            <p class="topic-text">
+              授業充実度:<%= topic.satisfaction %>
+            </p>
+            <p class="topic-text">
+              単位取得度:<%= topic.difficulty_level %>
+            </p>
+            <p class="topic-text">
+              主な評価方法:<%= topic.assessment %>
+            </p>
+            <p class="topic-text">
+              コメント:<%= topic.description %>
+            </p>
+            
+          
+            <%= link_to "削除", topic_path(topic), :method => :delete %>
+          
+      
           </div>
         </div>
       </div>
