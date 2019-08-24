@@ -17,6 +17,20 @@ class TopicsController < ApplicationController
     end
   end
   
+  def edit
+    @topic = Topic.find_by(id: params[:id])
+  end
+  
+  def update
+    @topic = Topic.find_by(id: params[:id])
+    if @topic.update_attributes(topic_params)
+      redirect_to topics_path, success: "編集しました"
+    else
+      flash.now[:danger] = "編集できませんでした"
+      render :edit
+    end
+  end
+  
   def search
     @topics = Topic.search(params[:search])
   end

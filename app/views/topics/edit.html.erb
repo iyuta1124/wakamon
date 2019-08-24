@@ -2,7 +2,7 @@
   <div class="container">
     <div class="row">
       <div class="col-md-6 col-md-offset-3">
-        <h1 class="text-center">新規投稿</h1>
+        <h1 class="text-center">投稿編集</h1>
         <%= form_for @topic do |f| %>
 
           <div class="form-group">
@@ -24,7 +24,7 @@
            
           <div class="form-group">
             <%= f.label :week %>
-            <%= f.select :week, [["月", "月曜"], ["火", "火曜"], ["水", "水曜"], ["木", "木曜"], ["金", "金曜"]] ,class:"form-control" %>
+            <%= f.select :week, [["月", "月"], ["火", "火"], ["水", "水"], ["木", "木"], ["金", "金"], ["その他", "その他"]] ,class:"form-control" %>
           </div>
           <div class="form-group">
             <%= f.label :term %>
