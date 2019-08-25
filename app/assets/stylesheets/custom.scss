@@ -99,6 +99,11 @@ h1, h2 {
       background-color: sandybrown;
       margin: 0 auto;
       border-radius: 7px 7px 0 0;
+      
+      .topic-index-icon{
+      height: 300px;
+      margin-left: 20px;
+     }
     }
     
     .topic-text {
@@ -106,10 +111,6 @@ h1, h2 {
       padding-left: 0px;
     }
     
-    .topic-index-icon{
-      height: 30px;
-      margin-left: 20px;
-    }
   }
 }
 
@@ -117,6 +118,25 @@ ul {
   list-style: none;
 }
 
-.fa-bookmark {
-  font-size: 2.5em;
+/*ページネーション自体のデザイン*/
+.pagination>li>a {
+  color: #696;   /*文字の色を変える*/
+}
+
+/* 表示しているページ番号のデザイン */
+.pagination>.active>a {     
+  background: orange;     /*背景の色を変える*/
+  border: 1px solid orange;
+  border-radius: 1px;     /*角を丸くする*/
+}
+
+.pagination>.active>a{
+  background: orange;     /*背景の色を変える*/
+  border: 1px solid orange;
+  border-radius: 3px; 
+}
+.pagination>.active>a:hover{
+  background: orange;     /*背景の色を変える*/
+  border: 1px solid orange;
+  border-radius: 3px; 
 }

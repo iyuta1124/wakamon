@@ -17,25 +17,24 @@
     
     <div class="row">
       <% @topics.each do |topic| %>
-        <div class="col-md-4 ">
+        <div class="col-md-6 col-md-offset">
           <div class="topic-index-single">
+          
             <h3 class="topic-author">
+               <% if !topic.favorite_users.include?(current_user) %>
+                <%= link_to favorites_path(topic_id: topic.id), method: :post do %>
+                  <span class="topic-index-icon">
+                    <i class="far fa-bookmark"></i>
+                  </span>
+                <% end %>
+              <% else %>
+                <%= link_to favorites_path(topic_id: topic.id), method: :delete do %>
+                <span class="topic-index-icon"><i class="fas fa-bookmark"></i></span>
+           <% end %>
+              <% end %>
               <%= topic.class_name %>
             </h3>
            
-            <% if !topic.favorite_users.include?(current_user) %>
-              <%= link_to favorites_path(topic_id: topic.id), method: :post do %>
-                <span　class="topic-index-icon">
-                  <i class="far fa-bookmark"></i>
-                </span>
-                <% end %>
-            <% else %>
-　            <%= link_to favorites_path(topic_id: topic.id), method: :delete do %>
-　              <span　class="topic-index-icon">
-　                <i class="fas fa-bookmark"></i>
-　              </span>
-　          　<% end %>
-            <% end %>
             
             <div class="row">
             <ul>
@@ -64,14 +63,24 @@
            </div>
             
           
-            <%= link_to "削除", topic_path(topic), :method => :delete %>
+          <% if logged_in? && current_user.id == topic.user.id %>
             <%= link_to "編集", edit_topic_path(topic) %>
+            <%= link_to "削除", topic_path(topic), :method => :delete %>
+          <% end %>
           
       
           </div>
+          
         </div>
       <% end %>
     </div>
+    
+    <div class="row">
+      <div class="pagenate col-md-4 col-md-offset 4">
+        <%= paginate @topics %>
+      </div>
+    </div>
+    
+    
   </div>
 </div>
-
