@@ -4,41 +4,40 @@
     <!--検索機能--!>
     <div class="row">
       <div class="col-md-4 col-md-offset-4">
-        <div class="">
-          <%= form_tag(search_path,:method => 'get') do %>
-            <%= text_field_tag :search %>
-            <%= submit_tag '授業名検索', :class_name => nil %>
-          <% end %>
-        </div>
+        <%= form_tag(search_path,:method => 'get') do %>
+          <%= text_field_tag :search %>
+          <%= submit_tag '授業名検索', :class_name => nil %>
+        <% end %>
       </div>
     </div>
     <!--検索機能終わり--!>
     
-    
     <div class="row">
       <% @topics.each do |topic| %>
-        <div class="col-md-4 ">
+        <div class="col-md-6 col-md-offset">
           <div class="topic-index-single">
-            <h3 class="topic-author">
-               <% if !topic.favorite_users.include?(current_user) %>
-                <%= link_to favorites_path(topic_id: topic.id), method: :post do %>
-                  <span　class="topic-index-icon">
-                    <i class="far fa-bookmark"></i>
-                  </span>
-                <% end %>
-              <% else %>
-　              <%= link_to favorites_path(topic_id: topic.id), method: :delete do %>
-　                <span　class="topic-index-icon">
-　                  <i class="fas fa-bookmark"></i>
-　                </span>
-　          　  <% end %>
-              <% end %>
           
-              <%= topic.class_name %>
+          <!--タイトル初め--!>
+          <h3 class="topic-author">
+            <% if !topic.favorite_users.include?(current_user) %>
+              <%= link_to favorites_path(topic_id: topic.id), method: :post do %>
+                <span class="topic-index-icon">
+                  <i class="far fa-bookmark"></i>
+                 </span>
+              <% end %>
+            <% else %>
+              <%= link_to favorites_path(topic_id: topic.id), method: :delete do %>
+                 <span class="topic-index-icon"><i class="fas fa-bookmark"></i></span>
+               <% end %>
+            <% end %>
+             
+            <%= topic.class_name %>
             </h3>
+            <!--タイトル終わり--!>
+          
            
-            
-            <div class="row">
+            <!--詳細リストはじめ--!>
+            <div class="show-item">
             <ul>
             <li class="topic-text ">
               【担当教員名】<%= topic.class_teacher %>
@@ -63,16 +62,28 @@
             </li>
             </ul>
            </div>
+           <!--詳細リスト終わり!>
             
-          
-          <% if logged_in? && current_user.id == topic.user.id %>
-            <%= link_to "編集", edit_topic_path(topic) %>
-            <%= link_to "削除", topic_path(topic), :method => :delete %>
-          <% end %>
-          
-      
+          <!--編集削除ボタン追加--!>
+          <div class="col-md-offset-9 col-md-3">
+            <% if logged_in? && current_user.id == topic.user.id %>
+              <%= link_to edit_topic_path(topic) do %>
+                <span class="topic-index-icon">
+                  <i class="fas fa-edit"></i>
+              </span>
+              <% end %>
+            
+              <%= link_to topic_path(topic), method: :delete do %>
+                <span class="topic-index-icon">
+                  <i class="fas fa-trash-alt"></i>
+                </span>
+              <% end %>
+            <% end %>
+          </div>.
+          <!--編集削除ボタン終わり--!>
           </div>
         </div>
       <% end %>
     </div>
   </div>
+</div>

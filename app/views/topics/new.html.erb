@@ -6,47 +6,47 @@
         <%= form_for @topic do |f| %>
 
           <div class="form-group">
-            <%= f.label :class_name %>
+            <%= f.label :授業名 %>
             <%= f.text_field :class_name, class: 'form-control' %>
           </div>
           <div class="form-group">
-            <%= f.label :class_teacher %>
+            <%= f.label :講師 %>
             <%= f.text_field :class_teacher, class: 'form-control' %>
           </div>
           <div class="form-group">
-            <%= f.label :year %>
+            <%= f.label :年度 %>
             <%= f.select :year, [["2019年度", "2019年度"], ["2018年度", "2018年度"], ["2017年度", "2017年度"], ["2016年度", "2016年度"], ["その他", "その他"]] ,class:"form-control" %>
           </div>
           <div class="form-group">
-            <%= f.label :semester %>
+            <%= f.label :学期 %>
             <%= f.select :semester, [["前期", "前期"], ["後期", "後期"]] ,class:"form-control" %>
           </div>
            
           <div class="form-group">
-            <%= f.label :week %>
+            <%= f.label :曜日 %>
             <%= f.select :week, [["月", "月曜"], ["火", "火曜"], ["水", "水曜"], ["木", "木曜"], ["金", "金曜"]] ,class:"form-control" %>
           </div>
           <div class="form-group">
-            <%= f.label :term %>
+            <%= f.label :時限 %>
             <%= f.select :term, [["1限", "1限"], ["2限", "2限"], ["3限", "3限"], ["4限", "4限"], ["5限", "5限"], ["その他", "その他"]] ,class:"form-control" %>
           </div>
           <div class="form-group">
-            <%= f.label :satisfaction %>
+            <%= f.label :授業充実度 %>
             <%= f.select :satisfaction, [["充実してない", "1"], ["あまり充実してない", "2"], ["普通", "3"], ["充実している", "4"], ["とても充実している", "5"]] ,class:"form-control" %>
           </div>
           <div class="form-group">
-            <%= f.label :difficulty_level %>
+            <%= f.label :単位取得度 %>
             <%= f.select :difficulty_level, [["すごくとりにくい", "1"], ["とりにくい", "2"], ["普通", "3"], ["とりやすい", "4"], ["すごくとりやすい", "5"]] ,class:"form-control" %>
           </div>
           <div class="form-group">
-            <%= f.label :assessment %>
+            <%= f.label :主な評価方法 %>
             <%= f.select :assessment, [["テスト", "テスト"], ["レポート", "レポート"], ["出席", "出席"], ["その他", "その他"]] ,class:"form-control" %>
           </div>
           <div class="form-group">
-            <%= f.label :description %>
+            <%= f.label :コメント %>
             <%= f.text_area :description, class: 'form-control' %>
           </div>
-          <%= f.submit '投稿', class: 'btn btn-block btn-black' %>
+          <%= f.submit '投稿', class: 'btn btn-block btn-success' %>
         <% end %>
       </div>
     </div>

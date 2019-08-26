@@ -1,60 +1,73 @@
 <div class="topic-index-wrapper">
   <div class="container">
     <div class="row">
-      
-    <div class="row">
       <% @favorite_topics.each do |topic| %>
-        <div class="col-md-4 ">
+         <div class="col-md-6">
           <div class="topic-index-single">
+            
+          <!--タイトル--!>
             <h3 class="topic-author">
+              <% if !topic.favorite_users.include?(current_user) %>
+                <%= link_to favorites_path(topic_id: topic.id), method: :post do %>
+                  <span class="topic-index-icon">
+                    <i class="far fa-bookmark"></i>
+                  </span>
+                <% end %>
+              <% else %>
+                <%= link_to favorites_path(topic_id: topic.id), method: :delete do %>
+                  <span class="topic-index-icon"><i class="fas fa-bookmark"></i></span>
+                <% end %>
+              <% end %>
+              
               <%= topic.class_name %>
             </h3>
+          <!--タイトル終わり--!>
            
-            <% if !topic.favorite_users.include?(current_user) %>
-              <%= link_to favorites_path(topic_id: topic.id), method: :post do %>
-                <span class="topic-index-icon">
-                  <i class="far fa-bookmark"></i>
-                </span>
-                <% end %>
-            <% else %>
-　            <%= link_to favorites_path(topic_id: topic.id), method: :delete do %>
-　              <span class="topic-index-icon">
-　                <i class="fas fa-bookmark"></i>
-　              </span>
-　          　<% end %>
-            <% end %>
-            
-            <div class="row">
+          <!--詳細リスト--!>
+            <div class="show-item">
             <ul>
-            <li class="topic-text ">
-              【担当教員名】<%= topic.class_teacher %>
-            </li>
-            <li class="topic-text ">
-               【受講時期】<%= topic.year %>/<%= topic.semester %>
-            </li>
-            <li class="topic-text ">
-              【時限】<%= topic.week %>/<%= topic.term %>
-            </li>
-            <li class="topic-text">
-              【授業充実度】<%= topic.satisfaction %>
-            </li>
-            <li class="topic-text">
-              【単位取得度】<%= topic.difficulty_level %>
-            </li>
-            <li class="topic-text">
-              【主な評価方法】<%= topic.assessment %>
-            </li>
-            <li class="topic-text">
-              【受講する人へのアドバイス】<br><%= topic.description %>
-            </li>
+              <li class="topic-text ">
+                【担当教員名】<%= topic.class_teacher %>
+              </li>
+              <li class="topic-text ">
+                【受講時期】<%= topic.year %>/<%= topic.semester %>
+               </li>
+              <li class="topic-text ">
+                【時限】<%= topic.week %>/<%= topic.term %>
+              </li>
+              <li class="topic-text">
+                【授業充実度】<%= topic.satisfaction %>
+              </li>
+              <li class="topic-text">
+                【単位取得度】<%= topic.difficulty_level %>
+              </li>
+              <li class="topic-text">
+                【主な評価方法】<%= topic.assessment %>
+              </li>
+              <li class="topic-text">
+                【受講する人へのアドバイス】<br><%= topic.description %>
+              </li>
             </ul>
-           </div>
+            </div>
+            <!--詳細リスト終わり--!>
+              
+            <!--編集削除ボタン追加--!>
+              <div class="col-md-offset-9 col-md-2">
+                <% if logged_in? && current_user.id == topic.user.id %>
+                  <%= link_to edit_topic_path(topic) do %>
+                    <span class="topic-index-icon">
+                      <i class="fas fa-edit"></i>
+                    </span>
+                  <% end %>
             
-          
-            <%= link_to "削除", topic_path(topic), :method => :delete %>
-            <%= link_to "編集", edit_topic_path(topic) %>
-          
-      
+                <%= link_to topic_path(topic), method: :delete do %>
+                  <span class="topic-index-icon">
+                    <i class="fas fa-trash-alt "></i>
+                  </span>
+                <%  end %>
+              <% end %>
+            </div>
+            <!--編集削除ボタン終わり--!>
           </div>
         </div>
       <% end %>
