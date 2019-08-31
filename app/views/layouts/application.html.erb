@@ -28,7 +28,17 @@
           <% if logged_in?%>
             <li>
               <%= link_to topics_path do %>
-                <span>一覧</span>
+                <span>投稿一覧</span>
+              <% end %>
+            </li>
+            <li>
+              <%= link_to new_topic_path do %>
+                <span>新規投稿</span>
+              <% end %>
+            </li>
+            <li>
+              <%= link_to favorites_index_path do %>
+                <span>お気に入り</span>
               <% end %>
             </li>
             <li>
@@ -39,16 +49,6 @@
             <li>
               <%= link_to logout_path, method: :delete do %>
                 <span>ログアウト</span>
-              <% end %>
-            </li>
-            <li>
-              <%= link_to favorites_index_path do %>
-                <span>お気に入り</span>
-              <% end %>
-            </li>
-            <li>
-              <%= link_to new_topic_path do %>
-                <span>新規投稿</span>
               <% end %>
             </li>
             <li>

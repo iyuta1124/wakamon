@@ -49,4 +49,8 @@ class TopicsController < ApplicationController
     params.require(:topic).permit(:description, :year, :class_name, :class_teacher, :semester, :week, :term, :satisfaction, :difficulty_level, :assessment)
   end
   
+  def search_params
+    params.require(:q).permit(:class_name_cont)
+  end
+  
 end
