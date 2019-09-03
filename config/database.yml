@@ -48,7 +48,7 @@ test:
 #     url: <%= ENV['DATABASE_URL'] %>
 #
 production:
-  <<: *default
-  database: wakamon_production
-  username: wakamon
-  password: <%= ENV['WAKAMON_DATABASE_PASSWORD'] %>
+<<: *default
+adapter: postgresql
+encoding: unicode
+pool: 5
