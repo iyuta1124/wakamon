@@ -9,6 +9,13 @@
       <div class="col-md-3">
         <%= link_to 'ログイン', login_path, class: 'btn btn-block btn-success' %>
       </div>
+      <div class="col-md-offset-3 col-md-6">
+        <%= form_for(:session, url: login_path) do |f| %>
+          <%= f.hidden_field :email, value: 'test@example.com' %>
+          <%= f.hidden_field :password, value: 'test' %>
+          <%= f.submit '簡単ログイン', class: 'btn btn-info' %>
+        <% end %>
+      </div>
     </div>
   </div>  
 </div>

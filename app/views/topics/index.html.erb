@@ -2,15 +2,44 @@
   <div class="container">
     
     <!--検索機能--!>
-    <div class="row">
-      <div class="col-md-4 col-md-offset-4">
-        <%= form_tag(search_path,:method => 'get') do %>
-          <%= text_field_tag :search %>
-          <%= submit_tag '授業名検索', :class_name => nil %>
-        <% end %>
+    <%= search_form_for(@q, url:search_path) do |f| %>
+      <div class="form-group">
+        <%= f.label :class_name_cont, "名前" %>
+        <%= f.search_field :class_name_cont %>
       </div>
-    </div>
+      <div class="form-group">
+      <%= f.label :year_eq, '年度'%>
+      <%= f.select :year_eq, [["2019年度", "2019年度"], ["2018年度", "2018年度"], ["2017年度", "2017年度"], ["2016年度", "2016年度"], ["その他", "その他"]] ,class:"form-control" %>
+      </div>
+      <div class="form-group">
+        <%= f.label :semester_eq, '学期' %>
+        <%= f.select :semester_eq, [["前期", "前期"], ["後期", "後期"]] ,class:"form-control" %>
+      </div>
+      <div class="form-group">
+        <%= f.label :week_eq, '曜日' %>
+        <%= f.select :week_eq, [["月", "月曜"], ["火", "火曜"], ["水", "水曜"], ["木", "木曜"], ["金", "金曜"]] ,class:"form-control" %>
+      </div>
+      <div class="form-group">
+        <%= f.label :term_eq, '時限' %>         
+        <%= f.select :term_eq, [["1限", "1限"], ["2限", "2限"], ["3限", "3限"], ["4限", "4限"], ["5限", "5限"], ["その他", "その他"]] ,class:"form-control" %>
+      </div>
+      <div class="form-group">
+        <%= f.label :satisfaction_eq, '授業充実度' %>
+        <%= f.select :satisfaction_eq, [["充実してない", "1"], ["あまり充実してない", "2"], ["普通", "3"], ["充実している", "4"], ["とても充実している", "5"]] ,class:"form-control" %>
+      </div>
+      <div class="form-group">
+        <%= f.label :difficulty_level, '単位取得度' %>
+        <%= f.select :difficulty_level, [["すごくとりにくい", "1"], ["とりにくい", "2"], ["普通", "3"], ["とりやすい", "4"], ["すごくとりやすい", "5"]] ,class:"form-control" %>
+      </div>
+      <div class="form-group">
+         <%= f.label :assessment_eq, '主な評価方法' %>
+         <%= f.select :assessment_eq, [["テスト", "テスト"], ["レポート", "レポート"], ["出席", "出席"], ["その他", "その他"]] ,class:"form-control" %>
+       </div>
+          
+      <%= f.submit '検索', class: 'btn btn-block btn-success'%>
+    <% end %>
     <!--検索機能終わり--!>
+    
     
     <div class="row">
       <% @topics.each do |topic| %>
@@ -65,7 +94,7 @@
             <!--詳細リスト終わり!>
             
             <!--編集削除ボタン追加--!>
-            <div class="col-md-offset-9 col-md-2">
+            <div class="col-md-offset-9 col-md-3">
               <% if logged_in? && current_user.id == topic.user.id %>
                 <%= link_to edit_topic_path(topic) do %>
                   <span class="topic-index-icon">

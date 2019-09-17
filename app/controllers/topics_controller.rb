@@ -1,6 +1,9 @@
 class TopicsController < ApplicationController
   
   def index
+    @q = Topic.ransack(params[:q])
+    @Topics = @q.result.includes(:class_name)
+    
     @topics = Topic.all.includes(:favorite_users)
     @topics = Topic.page(params[:page]).per(6)
   end
@@ -34,7 +37,8 @@ class TopicsController < ApplicationController
   end
   
   def search
-    @topics = Topic.search(params[:search])
+    @q = Topic.ransack(params[:q])
+    @topics = @q.result
   end
   
   def destroy
@@ -49,8 +53,9 @@ class TopicsController < ApplicationController
     params.require(:topic).permit(:description, :year, :class_name, :class_teacher, :semester, :week, :term, :satisfaction, :difficulty_level, :assessment)
   end
   
+  private
   def search_params
-    params.require(:q).permit(:class_name_cont)
+    params.require(:q).permit!
   end
   
 end

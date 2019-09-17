@@ -12,7 +12,7 @@ Rails.application.routes.draw do
   resources :users
   resources :topics
   
-  get '/search', to: 'topics#search'
+  get 'search', to: 'topics#search'
   post "topics/:id/destroy" => "topics#destroy"
   
   
