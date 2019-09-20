@@ -15,32 +15,31 @@
           </div>
           <div class="form-group">
             <%= f.label :年度 %>
-            <%= f.select :year, [["2019年度", "2019年度"], ["2018年度", "2018年度"], ["2017年度", "2017年度"], ["2016年度", "2016年度"], ["その他", "その他"]] ,class:"form-control" %>
+            <%= f.select :year, [["2019年度", "2019年度"], ["2018年度", "2018年度"], ["2017年度", "2017年度"], ["2016年度", "2016年度"], ["その他", "その他"]],{},{class:'form-control'} %>
           </div>
           <div class="form-group">
             <%= f.label :学期 %>
-            <%= f.select :semester, [["前期", "前期"], ["後期", "後期"]] ,class:"form-control" %>
+            <%= f.select :semester, [["前期", "前期"], ["後期", "後期"]] ,{},{class:"form-control"} %>
           </div>
-           
           <div class="form-group">
             <%= f.label :曜日 %>
-            <%= f.select :week, [["月", "月曜"], ["火", "火曜"], ["水", "水曜"], ["木", "木曜"], ["金", "金曜"]] ,class:"form-control" %>
+            <%= f.select :week, [["月", "月曜"], ["火", "火曜"], ["水", "水曜"], ["木", "木曜"], ["金", "金曜"]] ,{},{class:"form-control"} %>
           </div>
           <div class="form-group">
             <%= f.label :時限 %>
-            <%= f.select :term, [["1限", "1限"], ["2限", "2限"], ["3限", "3限"], ["4限", "4限"], ["5限", "5限"], ["その他", "その他"]] ,class:"form-control" %>
+            <%= f.select :term, [["1限", "1限"], ["2限", "2限"], ["3限", "3限"], ["4限", "4限"], ["5限", "5限"], ["その他", "その他"]] ,{},{class:"form-control"} %>
           </div>
           <div class="form-group">
             <%= f.label :授業充実度 %>
-            <%= f.select :satisfaction, [["充実してない", "1"], ["あまり充実してない", "2"], ["普通", "3"], ["充実している", "4"], ["とても充実している", "5"]] ,class:"form-control" %>
+            <%= f.select :satisfaction, [["充実してない", "1"], ["あまり充実してない", "2"], ["普通", "3"], ["充実している", "4"], ["とても充実している", "5"]] ,{},{class:"form-control"} %>
           </div>
           <div class="form-group">
             <%= f.label :単位取得度 %>
-            <%= f.select :difficulty_level, [["すごくとりにくい", "1"], ["とりにくい", "2"], ["普通", "3"], ["とりやすい", "4"], ["すごくとりやすい", "5"]] ,class:"form-control" %>
+            <%= f.select :difficulty_level, [["すごくとりにくい", "1"], ["とりにくい", "2"], ["普通", "3"], ["とりやすい", "4"], ["すごくとりやすい", "5"]] ,{},{class:"form-control"} %>
           </div>
           <div class="form-group">
             <%= f.label :主な評価方法 %>
-            <%= f.select :assessment, [["テスト", "テスト"], ["レポート", "レポート"], ["出席", "出席"], ["その他", "その他"]] ,class:"form-control" %>
+            <%= f.select :assessment, [["テスト", "テスト"], ["レポート", "レポート"], ["出席", "出席"], ["その他", "その他"]], {},{class:"form-control"} %>
           </div>
           <div class="form-group">
             <%= f.label :コメント %>

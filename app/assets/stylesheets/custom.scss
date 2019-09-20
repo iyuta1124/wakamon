@@ -3,7 +3,7 @@ h1, h2 {
 }
 
 .text-white {
-  color: black;
+  color: #fff;
 }
 
 .btn-white {
@@ -22,12 +22,11 @@ h1, h2 {
 .top-hero-wrapper {
   width: 100vw;
   height: 100vh;
-  background-image: url('bg-top.png');
+  background-image: url('aerial_2.jpg');
   background-position: center;
   background-repeat: no-repeat;
   background-attachment: fixed;
   background-size: cover;
-  background-color: #faeab1;
 }
 
 .navbar {
@@ -35,7 +34,14 @@ h1, h2 {
 }
 
 .top-hero-container {
-  padding-top: 220px;
+  width: 100vw;
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  padding-top:220px;
+  background-color: rgba(0,0,0,0.6);
   h1 {
     font-size: 56px;
     margin-bottom: 20px;
@@ -54,7 +60,7 @@ h1, h2 {
   width: 100vw;
   height: 100vh;
   background-image: image-url('#');
-  background-position: center center;
+  background-position: center;
   background-repeat: no-repeat;
   background-attachment: fixed;
   background-size: cover;

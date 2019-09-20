@@ -21,7 +21,6 @@
       <%= f.select :year_eq, [["2019年度", "2019年度"], ["2018年度", "2018年度"], ["2017年度", "2017年度"], ["2016年度", "2016年度"], ["その他", "その他"]],{:include_blank => '年度'},{class:'form-control'}%>
       </div>
       <div class="form-group col-md-3">
-
         <%= f.select :semester_eq, [["前期", "前期"], ["後期", "後期"]], {:include_blank => '学期'}, {class:'form-control'} %>
       </div>
       <div class="form-group col-md-3">
@@ -38,7 +37,7 @@
       </div>
       <div class="form-group col-md-3">
          <%= f.select :assessment_eq, [["テスト", "テスト"], ["レポート", "レポート"], ["出席", "出席"], ["その他", "その他"]] , {:include_blank => '主な評価方法'}, {class:'form-control'} %>
-       </div>
+      </div>
           
       <div class=" col-md-3 ">
         <%= f.submit '検索', class: ' btn btn-block btn-danger'%>
