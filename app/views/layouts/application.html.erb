@@ -43,17 +43,12 @@
             </li>
             <li>
               <%= link_to '#' do %>
-                <span><%=current_user.name%></span>
+                <span>【ユーザー名】<%=current_user.name%></span>
               <% end %>
             </li>
             <li>
               <%= link_to logout_path, method: :delete do %>
                 <span>ログアウト</span>
-              <% end %>
-            </li>
-            <li>
-              <%= link_to search_path do %>
-                <span>検索</span>
               <% end %>
             </li>
           <% else %>
