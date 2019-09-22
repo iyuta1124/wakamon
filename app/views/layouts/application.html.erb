@@ -16,55 +16,60 @@
       <div class="alert alert-<%= key %>" role="alert"><%= value %></div>
     <% end %>
     
-    <nav class="navbar navbar-default navbar-fixed-top navbar-transparent">
+    <nav class="navbar navbar-expand-sm navbar-default navbar-fixed-top navbar-transparent">
       <div class="container">
-      
         <%= link_to root_path do %>
         <span class="navbar-brand">wakamon</span>
         <% end %>
         
-      
-        <ul class="nav navbar-nav navbar-right">
-          <% if logged_in?%>
-            <li>
-              <%= link_to topics_path do %>
-                <span>投稿一覧</span>
-              <% end %>
-            </li>
-            <li>
-              <%= link_to new_topic_path do %>
-                <span>新規投稿</span>
-              <% end %>
-            </li>
-            <li>
-              <%= link_to favorites_index_path do %>
-                <span>お気に入り</span>
-              <% end %>
-            </li>
-            <li>
-              <%= link_to '#' do %>
-                <span>【ユーザー名】<%=current_user.name%></span>
-              <% end %>
-            </li>
-            <li>
-              <%= link_to logout_path, method: :delete do %>
-                <span>ログアウト</span>
-              <% end %>
-            </li>
-          <% else %>
-            <li>
-              <%= link_to new_user_path do %>
-                <span>新規登録</span>
-              <% end %>
-            </li>
-            <li>
-              <%= link_to login_path do %>
-                <span>ログイン</span>
-              <% end %>
-            </li>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navmenu1">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        
+      <div class="collapse navbar-collapse" id="navmenu1">
+          <ul class="nav navbar-nav navbar-right">
+            <% if logged_in?%>
+              <li class="nav-item">
+                <%= link_to topics_path do %>
+                  <span class="nav-link">投稿一覧</span>
+                <% end %>
+              </li>
+              <li class="nav-item">
+                <%= link_to new_topic_path do %>
+                  <span class="nav-link">新規投稿</span>
+                <% end %>
+              </li>
+              <li class="nav-item">
+                <%= link_to favorites_index_path do %>
+                  <span class="nav-link">お気に入り</span>
+                <% end %>
+              </li>
+              <li class="nav-item">
+                <%= link_to '#' do %>
+                  <span class="nav-link">【ユーザー名】<%=current_user.name%></span>
+                <% end %>
+              </li>
+              <li class="nav-item">
+                <%= link_to logout_path, method: :delete do %>
+                  <span class="nav-link">ログアウト</span>
+                <% end %>
+              </li>
+            <% else %>
+              <li class="nav-item">
+                <%= link_to new_user_path do %>
+                  <span class="nav-link">新規登録</span>
+                <% end %>
+              </li class="nav-item">
+              <li>
+                <%= link_to login_path do %>
+                  <span class="nav-link">ログイン</span>
+                <% end %>
+              </li>
+    
+            <% end %>
+          </ul>
+      </div>
 
-          <% end %>
-        </ul>
       </div>
     </nav>
 

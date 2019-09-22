@@ -5,6 +5,7 @@
          <div class="col-md-6">
           <div class="topic-index-single">
             
+            
           <!--タイトル--!>
             <h3 class="topic-author">
               <% if !topic.favorite_users.include?(current_user) %>
@@ -52,7 +53,7 @@
             <!--詳細リスト終わり--!>
               
             <!--編集削除ボタン追加--!>
-              <div class="col-md-offset-9 col-md-2">
+              <div class="col-md-offset-9 col-md-3">
                 <% if logged_in? && current_user.id == topic.user.id %>
                   <%= link_to edit_topic_path(topic) do %>
                     <span class="topic-index-icon">
