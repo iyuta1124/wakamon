@@ -22,10 +22,17 @@
         <span class="navbar-brand">wakamon</span>
         <% end %>
         
-      <div>
+    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#gnavi">
+      <span class="sr-only">メニュー</span>
+      <span class="icon-bar"></span>
+      <span class="icon-bar"></span>
+      <span class="icon-bar"></span>
+    </button>
+        
+      <div id="gnavi" class="collapse navbar-collapse">
           <ul class="nav navbar-nav navbar-right">
             <% if logged_in?%>
-              <li class="nav-item">
+              <li class="nav-item　text-center">
                 <%= link_to topics_path do %>
                   <span class="nav-link">投稿一覧</span>
                 <% end %>

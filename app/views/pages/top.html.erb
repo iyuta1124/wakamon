@@ -10,11 +10,11 @@
       <div class="col-md-3">
         <%= link_to 'ログイン', login_path, class: 'btn btn-block btn-success' %>
       </div>
-      <div class="col-md-offset-3 col-md-6">
+      <div class="col-md-offset-4 col-md-4">
         <%= form_for(:session, url: login_path) do |f| %>
           <%= f.hidden_field :email, value: 'test@example.com' %>
           <%= f.hidden_field :password, value: 'test' %>
-          <%= f.submit 'ポートフォリオ閲覧用簡単ログイン', class: 'btn btn-info ' %>
+          <%= f.submit 'ポートフォリオ閲覧用簡単ログイン', class: 'btn btn-block btn-info ' %>
         <% end %>
       </div>
     </div>
