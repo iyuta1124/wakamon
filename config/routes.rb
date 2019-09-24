@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  
   get 'topics/new'
   get 'sessions/new'
   root 'pages#top'
@@ -15,6 +16,10 @@ Rails.application.routes.draw do
   get 'search', to: 'topics#search'
   post "topics/:id/destroy" => "topics#destroy"
   
+  get 'boards/index'
+  get 'boards/show/:id' => 'boards#show', as: :boards_show
+  post 'boards/create' => 'boards#create'
+  delete 'boards/delete/:id' => 'boards#delete', as: :boards_delete
   
   get 'favorites/index'
   post '/favorites', to: 'favorites#create'

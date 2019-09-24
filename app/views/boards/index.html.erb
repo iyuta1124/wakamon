@@ -1,0 +1,15 @@
+<h1>掲示板</h1>
+<ul>
+  <% @boards.each do |board| %>
+    <li>
+      <%= link_to board.title, boards_show_path(board.id) %>
+      <%= link_to '[削除]', boards_delete_path(board.id), method: :delete, data: {confirm: "削除してもよろしいですか？"} %>
+    </li>
+  <% end %>
+</ul>
+
+<h1>スレッド追加</h1>
+<%= form_for @newboard, :url => {:action => 'create' } do |f| %>
+  <%= f.text_field :title %>
+  <%= f.submit %>
+<% end %>
